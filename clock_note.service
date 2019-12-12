@@ -1,0 +1,15 @@
+
+[Unit]
+Description=Get temp, humid, and humiditydeficit data & Post to the monitor
+After=rc-local.service
+[Service]
+WorkingDirectory=/home/pi/clock_note
+ExecStart=/usr/bin/sudo /usr/bin/python -m clock_note
+Restart=always
+#RestartSec=90
+RestartSec=30
+Type=simple
+PIDFile=/var/run/clock_note.pid
+[Install]
+WantedBy=multi-user.target
+
